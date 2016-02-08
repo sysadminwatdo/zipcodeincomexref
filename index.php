@@ -1,6 +1,34 @@
 <?php
 include("password_protect.php");
+print_r($_POST);
 ?>
+<form method="post" action="export.php">
+<input type="hidden" name="export" value="yes">
+<b>Data Export By State And County</b><br />
+<select name="state">
+<option>State</option>
+<?php 
+$db = new mysqli('localhost', 'root', 'PasswordHere', 'ec');
+$sql = "select distinct state from censusdata order by state ASC";
+$result = $db->query($sql);
+while($row = $result->fetch_assoc()){
+echo '<option name="' . $row['state'] . '" value="' . $row['state'] . '">' . $row['state'] . '</option>';
+}
+?>
+</select>
+<select name="county">
+<option>County</option>
+<?php
+$db = new mysqli('localhost', 'root', 'PasswordHere', 'ec');
+$sql = "select distinct county from censusdata order by county ASC";
+$result = $db->query($sql);
+while($row = $result->fetch_assoc()){
+echo '<option value="' . $row['county'] . '">' . $row['county'] . '</option>';
+}
+?>
+</select>
+<input type="submit">
+</form>
 <form method="post" action="index.php">
 2 Letter State Abbrev <input type="text" name="st">
 <input type="hidden" name="type" value="lowestmedianbystate">
