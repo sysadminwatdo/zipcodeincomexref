@@ -1,7 +1,7 @@
 <?php
 header("Refresh:1");
-echo "Fixing a state.<br />";
 $db = new mysqli('localhost', 'root', 'PasswordHere', 'ec');
+echo "Fixing a state.<br />";
 $sql = "select * from censusdata where county IS NULL limit 1";
 $result = $db->query($sql);
 while ($row = $result->fetch_assoc()){
