@@ -160,8 +160,7 @@ if ($_POST['type'] = 'twodigit'){
 		if($db->connect_errno > 0){ echo $db->connect_error; }
 			$zcta = $_POST['first'];
 			$sql = "select * from censusdata where ZCTA LIKE '$zcta%' order by HH_w_earnings_mean_earnings ASC LIMIT $num";
-			echo $sql;
-		        $result = $db->query($sql);
+			$result = $db->query($sql);
 			echo "<center><b>Lowest Income By Partial Zip</b></center>";
 			echo "<table border=1><tr>";
 		        echo "<th>ID</th>";
