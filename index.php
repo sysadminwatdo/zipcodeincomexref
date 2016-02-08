@@ -1,5 +1,9 @@
 <?php
 include("password_protect.php");
+echo "Income Data By Zip Code<br />";
+echo "Data from 2000 census.<br />";
+echo "Copyright 2016 Daniel Wurzbacher. Distributed under the MIT License.";
+echo "<hr />";
 ?>
 <form method="post" action="export.php">
 <input type="hidden" name="export" value="yes">
@@ -28,6 +32,7 @@ echo '<option value="' . $row['county'] . '">' . $row['county'] . '</option>';
 </select>
 <input type="submit">
 </form>
+<br />
 <form method="post" action="index.php">
 2 Letter State Abbrev <input type="text" name="st">
 <input type="hidden" name="type" value="lowestmedianbystate">
