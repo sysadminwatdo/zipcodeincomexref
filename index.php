@@ -1,6 +1,5 @@
 <?php
 include("password_protect.php");
-print_r($_POST);
 ?>
 <form method="post" action="export.php">
 <input type="hidden" name="export" value="yes">
