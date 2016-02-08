@@ -2,7 +2,7 @@
 
 This is just something I threw together quickly because a client needed to exclude low-income zips from a PPC campaign. There aren't many free resources that offer income by zip code or public assitance percentage by zip code.
 
-Data is from the 2000 census.
+Data is from the 2000 census. Additional data sources may later be added, check back for latest data.
 
 Note that the ZCTA used by the census does NOT track perfectly with zip code boundaries! It's close enough for these purposes, though.
 
