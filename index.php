@@ -5,6 +5,24 @@ echo "Data from 2000 census.<br />";
 echo "Copyright 2016 Daniel Wurzbacher. Distributed under the MIT License.";
 echo "<hr />";
 ?>
+<form method="post" action="exportstate.php">
+<input type="hidden" name="export" value="yes">
+<b>Data Export By State</b><br />
+<select name="state">
+<option>State</option>
+<?php
+$db = new mysqli('localhost', 'root', 'PasswordHere', 'ec');
+$sql = "select distinct state from censusdata order by state ASC";
+$result = $db->query($sql);
+while($row = $result->fetch_assoc()){
+	echo '<option name="' . $row['state'] . '" value="' . $row['state'] . '">' . $row['state'] . '</option>';
+}
+?>
+</select>
+<input type="submit">
+</form>
+
+<hr />
 <form method="post" action="export.php">
 <input type="hidden" name="export" value="yes">
 <b>Data Export By State And County</b><br />
