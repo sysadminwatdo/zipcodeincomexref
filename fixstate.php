@@ -10,7 +10,7 @@ while ($row = $result->fetch_assoc()){
 	$id = $row['id'];
 	$zcta = $row['ZCTA'];
 }
-echo "ID: " . $id . " ZCTA: " . $zcta;
+echo "ID: " . $id . " ZCTA: " . $zcta . "<br />";
 $sql = "select zipcode, town, state_abbr, county from zipxref where zipcode = '$zcta'";
 $result = $db->query($sql);
 # if(!$result){
@@ -28,7 +28,7 @@ while ($row = $result->fetch_assoc()){
 	$stateabbr = $row['state_abbr'];
 	global $county;
 	$county = $row['county'];
-	echo "<br />Zip: " . $zipcode . " Town: " . $town . "State: " . $stateabbr . " County: " . $county . "<br />";
+	echo "<br />Zip: " . $zipcode . " Town: " . $town . " State: " . $stateabbr . " County: " . $county . "<br />";
 }
 	$sql = "update censusdata set state = '$stateabbr' where id = '$id'";
 	$result = $db->query($sql);
