@@ -1,6 +1,6 @@
 # Zip code and income cross-reference
 
-This is just something I threw together quickly because a client needed to exclude low-income zips from a PPC campaign.
+This is just something I threw together quickly because a client needed to exclude low-income zips from a PPC campaign. There aren't many free resources that offer income by zip code or public assitance percentage by zip code.
 
 Data is from the 2000 census.
 
