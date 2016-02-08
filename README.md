@@ -16,7 +16,7 @@ This software is distributed under the MIT license, per the below.
 
 The MIT License (MIT)
 
-Copyright (c) [2016] [Daniel Wurzbacher]
+Copyright (c) 2016 Daniel Wurzbacher
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
