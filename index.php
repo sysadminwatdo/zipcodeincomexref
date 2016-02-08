@@ -34,7 +34,7 @@ $state = $_POST['st'];
 global $num;
 $num = $_POST['num'];
 if ($_POST['type'] = 'lowestmedianbystate'){
-	$db = new mysqli('localhost', 'root', '', 'ec');
+	$db = new mysqli('localhost', 'root', 'PasswordHere', 'ec');
 	if($db->connect_errno > 0){ echo $db->connect_error; }
 	$sql = "select * from censusdata where state = '$state' order by HH_w_earnings_mean_earnings ASC LIMIT $num";
 	$result = $db->query($sql);
@@ -48,6 +48,8 @@ if ($_POST['type'] = 'lowestmedianbystate'){
 	echo "<th>Per Capita - M > 15</th>";
 	echo "<th>Per Capita - F > 15</th>";
 	echo "<th>Per Capita</th>";
+	echo "<th>Town</th>";
+	echo "<th>County</th>";
 	echo "</tr>";
 	while ($row = $result->fetch_assoc()){	
 	echo "<tr>";
@@ -60,13 +62,15 @@ if ($_POST['type'] = 'lowestmedianbystate'){
 	echo "<td>$" . $row['Males_over_15_median_per_capita_income'] . "</td>";
 	echo "<td>$" . $row['Females_over_15_median_per_capita_income'] . "</td>";
 	echo "<td>$" . $row['per_capita_income'] . "</td>";
+	echo "<td>" . $row['town'] . "</td>";
+	echo "<td>" . $row['county'] . "</td>";
 	echo "</tr>";
 	}	
 echo "</table>";
 }
 
 if ($_POST['type'] = 'highestpublicassistance'){
-	        $db = new mysqli('localhost', 'root', '', 'ec');
+	        $db = new mysqli('localhost', 'root', 'PasswordHere', 'ec');
 		        if($db->connect_errno > 0){ echo $db->connect_error; }
 		        $sql = "select * from censusdata where state = '$state' order by HH_percent_with_public_assistance_income DESC LIMIT $num";
 		        $result = $db->query($sql);
@@ -80,7 +84,9 @@ if ($_POST['type'] = 'highestpublicassistance'){
 			        echo "<th>Per Capita - M > 15</th>";
 				echo "<th>Per Capita - F > 15</th>";
 			        echo "<th>Per Capita</th>";
-			        echo "</tr>";
+				echo "<th>Town</th>";
+			        echo "<th>County</th>";
+				echo "</tr>";
 			        while ($row = $result->fetch_assoc()){
 				        echo "<tr>";
 				        $id = $row['id'];
@@ -92,13 +98,15 @@ if ($_POST['type'] = 'highestpublicassistance'){
 				        echo "<td>$" . $row['Males_over_15_median_per_capita_income'] . "</td>";
 				        echo "<td>$" . $row['Females_over_15_median_per_capita_income'] . "</td>";
 				        echo "<td>$" . $row['per_capita_income'] . "</td>";
-				        echo "</tr>";
+					echo "<td>" . $row['town'] . "</td>";
+					echo "<td>" . $row['county'] . "</td>";					
+					echo "</tr>";
 				        }
 				echo "</table>";
 }
 
 if ($_POST['type'] = 'twodigit'){
-	        $db = new mysqli('localhost', 'root', '', 'ec');
+	        $db = new mysqli('localhost', 'root', 'PasswordHere', 'ec');
 		if($db->connect_errno > 0){ echo $db->connect_error; }
 			$zcta = $_POST['first'];
 			$sql = "select * from censusdata where ZCTA LIKE '$zcta%' order by HH_w_earnings_mean_earnings ASC LIMIT $num";
@@ -114,7 +122,9 @@ if ($_POST['type'] = 'twodigit'){
 	                echo "<th>Per Capita - M > 15</th>";
 		        echo "<th>Per Capita - F > 15</th>";
 		        echo "<th>Per Capita</th>";
-		        echo "</tr>";
+			echo "<th>Town</th>";
+			echo "<th>County</th>";
+			echo "</tr>";
 		        while ($row = $result->fetch_assoc()){
 			      echo "<tr>";
 			      $id = $row['id'];
@@ -126,6 +136,8 @@ if ($_POST['type'] = 'twodigit'){
 		              echo "<td>$" . $row['Males_over_15_median_per_capita_income'] . "</td>";
 			      echo "<td>$" . $row['Females_over_15_median_per_capita_income'] . "</td>";
       		              echo "<td>$" . $row['per_capita_income'] . "</td>"; 
+			      echo "<td>" . $row['town'] . "</td>";
+                              echo "<td>" . $row['county'] . "</td>";
 			      echo "</tr>";
 				}
 			echo "</table>";
