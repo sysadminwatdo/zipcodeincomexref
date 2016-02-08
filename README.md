@@ -12,6 +12,8 @@ Added export to CSV by state and county. Could add by state only if it would be 
 
 Added a small bonus - I got tired of removing (and hoping I removed) my db credentials for every commit - especially while fixstate.php was running. nopw-example.sh and pw-example.sh are tiny shell scripts that go through all files with passwords and replace them with fake passwords. After the commit, run pw-example.sh and it will reverse the process.
 
+The db is fairly small, you can host this on just about any VPS or even an old laptop or VM locally.
+
 This software is distributed under the MIT license, per the below.
 
 The MIT License (MIT)
